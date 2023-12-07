@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+html {
+    font-size: 2rem;
+
+    @media (min-width: 600px) {
+        font-size: 1rem;
+    }
+  }
+
+body {
+    background-image: url("./images/tiles-shapes.jpeg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: rgb(68, 83, 81)
+}
+
+.app {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(35, 4, 41, 0.05) 0 6px 24px, rgba(35, 4, 41, 0.08) 0 1px 2px 1.5px;
+    border-radius: 10px;
+    padding: 45px 25px;
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+
+    @media (max-width: 600px) {
+        margin: 30px 10px;
+        padding: 5px;
+        width: 100vw;
+    }
+}
+
+/* List Header */
+
+.list-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: rgba(35, 4, 41, 0.05) 1px solid;
+    padding-bottom: 35px;
+
+    @media (max-width: 600px) {
+        display: block;
+    }
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+
+    @media (max-width: 600px) {
+        display: block;
+        margin: auto;
+    }
+}
+
+.list-item .info-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 600px) {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        width: 100vw;
+        max-width: 550px;
+        margin: 25px 20px;
+    }
+}
+
+.list-item .info-container {
+    @media (min-width: 601px) and (max-width: 900px) {
+        display: block;
+        font-size: 1.1rem;
+        margin: 10px auto 10px 20px;
+    }
+}
+
+button {
+    margin: 0;
+    padding: 5px 12px;
+    border-radius: 14px;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.edit {
+    border: 1.5px solid rgb(141, 181, 145);
+    color: rgb(141, 181, 145);
+    text-transform: uppercase;
+}
+
+.edit:hover {
+    background-color: rgb(182, 223, 186);
+}
+
+.edit:active {
+    background-color: rgb(141, 181, 145);
+    color: rgb(255, 255, 255);
+}
+
+.delete {
+    border: 1.5px solid rgb(225, 175, 163);
+    color: rgb(225, 175, 163);
+    text-transform: uppercase;
+}
+
+.delete:hover {
+    background-color: rgb(255, 201, 193);
+}
+
+.delete:active {
+    background-color: rgb(225, 175, 163);
+    color: rgb(255, 255, 255);
+}
+
+.create {
+    border: 1.5px solid rgb(195, 198, 210) !important;
+    color: rgb(108, 115, 148);
+    text-transform: uppercase;
+}
+
+.create:hover {
+    background-color: rgb(131, 138, 172);
+}
+
+.create:active {
+    border: 1.5px solid rgb(108, 115, 148);
+    background-color: rgb(108, 115, 148);
+    color: rgb(255, 255, 255);
+}
+
+.signout {
+    border: 1.5px solid rgb(255, 175, 163);
+    background-color: rgb(255, 175, 163) !important;
+    color: rgb(108, 115, 148);
+}
+
+.signout:hover {
+    background-color: rgb(175, 94, 94)!important;
+    border: 1.5px solid rgb(175, 94, 94);
+}
+
+.signout:active {
+    border: 1.5px solid rgb(175, 81, 81) !important;
+    background-color: rgb(175, 81, 81) !important;
+    color: rgb(255, 255, 255);
+}
+
+/* List Item */
+.list-item {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.08) 0 0 0 1px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 4px;
+}
+
+/* TickIcon */
+.tick {
+    padding: 10px;
+    @media (min-width: 601px) and (max-width: 900px) {
+        padding: 0;
+    }
+}
+
+.tick path {
+    fill: none;
+    stroke: rgb(0,0,0);
+    stroke-miterlimit: 10;
+    stroke-width: 32px;
+}
+
+/* Modal */
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    max-width: 500px;
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow:
+     rgba(0,0,0, 0.05) 0 6px 24px 0,
+     rgba(0,0,0, 0.08) 0 0 0 1.5px;
+}
+
+.modal .form-title-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.modal .form-title-container button {
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.modal .form-title-container button:active {
+    color: rgb(254, 69, 69);
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    font-size: 14px;
+}
+
+input {
+    margin: 9px 0;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1.5px solid rgb(237, 232, 232);
+    background-color: rgb(237, 232, 232);
+
+    @media (max-width: 600px) {
+        margin: 8px 0;
+        padding: 13px 15px;
+        font-size: 0.65rem;
+    }
+}
+
+input[type=submit]:hover {
+    color: rgb(255, 255, 255);
+}
+
+/* Auth */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.auth-container-box {
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 
+        rgba(78, 5, 5, 0.05) 0 6px 25px,
+        rgba(78, 5, 5, 0.05) 0 0 0 0.8px;
+
+    @media (max-width: 600px) {
+        max-width: 400px;
+        margin: 0 50px;
+    }
+}
+
+.auth-container-box form {
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+    padding: 20px;
+
+    @media (max-width: 600px) {
+        padding: 8px;
+    }
+}
+
+.auth-container-box form h2 {
+    margin: 10px auto;
+    font-size: clamp(2rem, 1rem + 10vw, 2rem);
+  
+    @media (max-width: 600px) {
+        font-size: 0.85rem;
+        margin: 15px auto 30px auto;
+    }
+}
+
+.auth-options {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 600px) {
+        display: block;
+        width: auto;
+        margin-top: 40px;
+    }
+}
+
+.auth-options button {
+    width: 50%;
+    border: none;
+    margin: 0 10px 20px 10px;
+    padding: 10px;
+    color: rgb(35, 38, 47);
+    text-transform: uppercase;
+
+    @media (max-width: 600px) {
+        width: 85%;
+        padding: 13px;
+        font-size: 0.75rem;
+    }
+}
+
+.auth-options button:active {
+    color: rgb(255, 255, 255);
+}
+
+.footer {
+    display: block;
+    padding: 35px 0;
+    text-align: center;
+    margin: 55px 0 10px -10px;
+
+    @media (max-width: 600px) {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: rgb(114, 114, 144);
+
+    @media (max-width: 600px) {
+        font-size: 0.45rem;
+    }
+}
+
+.user-email {
+    float: right;
+    font-size: 1.20rem;
+    margin: 10px;
+    padding: 35px 0;
+    color: rgb(68, 83, 81);
+
+    @media (max-width: 600px) {
+        float: none;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}
+
+.outer-bar {
+    width: 190px;
+    height: 15px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 1px 6px 10px 0.1px rgba(68, 83, 81, 0.8);
+
+    @media (max-width: 600px) {
+        margin: 8px 0;
+        width: 100%;
+    }
+}
+
+.outer-bar {
+    @media (min-width: 601px) and (max-width: 900px) {
+        margin: 8px 0;
+        width: 100%;
+    }
+}
+
+.inner-bar {
+    height: 15px;
+}
+
+.task-title {
+    width: 260px;
+    text-align: start;
+    flex-grow: 3;
+    padding: 0 6px;
+
+    @media (max-width: 600px) {
+        text-align: center;
+    }
+
+    @media (min-width: 601px) and (max-width: 900px) { 
+        float: left;
+        font-size: 1.2rem;
+        padding: 8px 0;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .task-title, .tick {
+        display: inline-block;
+        text-align: center;
+        margin: 5px auto;
+    }      
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+
+    @media (max-width: 600px) {
+        font-size: clamp(1rem, 1rem + 5vw, 1.5rem);;
+    }
+}
+
+.title-container .svg {
+    width: clamp(3rem, 1rem + 10vw, 4rem);
+    height: clamp(3rem, 1rem + 10vw, 4rem);
+    font-size: clamp(2rem, 1rem + 10vw, 4rem);
+    padding-top: 8px;
+    margin: 0 18px;
+}
+
+.bar-container {
+    flex-grow: 2;
+
+    @media (max-width: 600px) {
+        display:flex;
+        flex-grow: none;
+        width: 90%;
+    }
+}
